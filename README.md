@@ -33,9 +33,42 @@ Dose Doctor is a Flutter-based mobile application designed for healthcare profes
 - Android Studio or VS Code
 
 ### Installation
+1. **Using this command**
+    ```bash
+    git clone https://github.com/SakD2006/dose_doctor.git
+    cd dose-doctor
+    flutter pub get
+    flutter run
 
-```bash
-git clone https://github.com/SakD2006/dose_doctor.git
-cd dose-doctor
-flutter pub get
-flutter run
+---
+
+## ✨ Features
+
+- Clean and responsive UI built with Flutter
+- Firebase integration for user management and data sync
+- Dynamic QR code scanning and database linking
+- Editable prescription form with multiple medication entries
+- Save + Print functionality post-submission
+
+---
+
+## 🛠️ Future Enhancements
+
+- Add support for attaching lab reports and notes
+- Integration with pharmacy inventory
+- Push notification system for medicine instructions
+
+---
+
+## 📣 Note
+
+This app is not standalone — it works in tandem with the Dose Dost app which handles patient-side features like reminders and tracking.
+
+## TEAM
+
+**BigBoyCoders**
+- Saksham
+- Aryaman
+- Prakyath
+- Devarsh
+- Tanay
