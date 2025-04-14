@@ -1,16 +1,41 @@
-# dose_doctor
+# 💊 Dose Doctor
 
-A new Flutter project.
+**Dose Doctor** is the doctor-side companion app for the **Dose Dost** ecosystem. It enables doctors to efficiently manage prescriptions and patient data by connecting directly to the patient's profile through a simple QR scan.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📱 What is Dose Doctor?
 
-A few resources to get you started if this is your first Flutter project:
+Dose Doctor is a Flutter-based mobile application designed for healthcare professionals. It works seamlessly with the patient-side app **Dose Dost** to provide a connected, real-time prescription system.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 🔗 Dose Doctor allows doctors to:
+- 🔍 Scan a patient's QR code to instantly connect to their profile.
+- 🧾 Create and manage prescriptions directly in the app.
+- 💾 Push prescribed medicines and dosage info to the patient’s personal database.
+- 🖨️ Print or review the prescription as needed.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🧩 Dependencies
+
+- This app is **dependent on [Dose Dost](https://github.com/SakD2006/dosedost.git)** – the patient-side app that manages reminders, logs, and medicine intake schedules.
+- Firebase for authentication and real-time database operations.
+- QR Scanner functionality to fetch patient UID and connect to their database.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Flutter SDK
+- Firebase project setup (with Firestore or Realtime DB)
+- Android Studio or VS Code
+
+### Installation
+
+```bash
+git clone https://github.com/your-repo/dose-doctor.git
+cd dose-doctor
+flutter pub get
+flutter run
