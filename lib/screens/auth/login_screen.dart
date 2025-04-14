@@ -34,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
             builder:
                 (context) => HomeScreen(
                   doctorId: user.uid,
-                  doctorName: user.displayName ?? user.email ?? 'Patient',
+                  doctorName: user.displayName ?? user.email ?? 'Doctor',
                 ),
           ),
         );

@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Hello, $doctorName!',
+              'Hello, $doctorName! 👨🏽‍⚕️',
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const QrScannerScreen(),
+                  builder: (context) => QrScannerScreen(doctorName: doctorName),
                 ),
               );
             },

@@ -4,7 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'patient_details_screen.dart'; // Make sure this file is implemented
 
 class QrScannerScreen extends StatefulWidget {
-  const QrScannerScreen({Key? key}) : super(key: key);
+  final String doctorName;
+  const QrScannerScreen({super.key, required this.doctorName});
 
   @override
   State<QrScannerScreen> createState() => _QrScannerScreenState();
@@ -69,6 +70,7 @@ class _QrScannerScreenState extends State<QrScannerScreen> {
                   (context) => PatientDetailsScreen(
                     patientId: scannedPatientId,
                     patientData: patientDoc.data() as Map<String, dynamic>,
+                    doctorName: widget.doctorName,
                   ),
             ),
           );

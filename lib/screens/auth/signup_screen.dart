@@ -42,6 +42,9 @@ class _SignupScreenState extends State<SignupScreen> {
               'typeOfDoctor': _typeController.text.trim(),
               'createdAt': FieldValue.serverTimestamp(),
             });
+        await user.updateDisplayName(
+          "Dr. ${_doctorNameController.text.trim()}",
+        );
 
         // Navigate to HomeScreen for doctors (passing doctorId and doctorName).
         Navigator.pushReplacement(
@@ -50,7 +53,7 @@ class _SignupScreenState extends State<SignupScreen> {
             builder:
                 (context) => HomeScreen(
                   doctorId: user.uid,
-                  doctorName: _doctorNameController.text.trim(),
+                  doctorName: "Dr. ${_doctorNameController.text.trim()}",
                 ),
           ),
         );
