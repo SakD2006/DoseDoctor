@@ -16,6 +16,9 @@ class PatientDetailsScreen extends StatelessWidget {
     // Extract patient details from the provided data.
     final String name = patientData['Name'] ?? 'Unknown';
     final int age = patientData['Age'] ?? 0;
+    final String gender = patientData['Gender'] ?? 'N/A';
+    final String weight = patientData['Weight'] ?? 'N/A';
+    final String height = patientData['Height'] ?? 'N/A';
     final Map<String, dynamic> mealTiming = patientData['Meal-timing'] ?? {};
     final String breakfast = mealTiming['Breakfast'] ?? 'N/A';
     final String lunch = mealTiming['Lunch'] ?? 'N/A';
@@ -63,12 +66,12 @@ class PatientDetailsScreen extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
+      /*floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           // TODO: Navigate to the prescription creation screen.
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => PrescriptionScreen()),
+            MaterialPageRoute(builder: (context) => PrescriptionFormScreen()),
           );
         },
         label: const Text("Add Prescription"),
@@ -79,6 +82,7 @@ class PatientDetailsScreen extends StatelessWidget {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      */
     );
   }
 }
