@@ -67,8 +67,8 @@ This app is not standalone — it works in tandem with the Dose Dost app which h
 ## TEAM
 
 **BigBoyCoders**
-- Saksham
-- Aryaman
-- Prakyath
-- Devarsh
-- Tanay
+- Saksham 24BBS0081
+- Aryaman 24BBS0110
+- Prakyath 24BBS0079
+- Devarsh 24BBS0153
+- Tanay 24BBS0104
