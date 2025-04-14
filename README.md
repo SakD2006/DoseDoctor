@@ -64,6 +64,8 @@ Dose Doctor is a Flutter-based mobile application designed for healthcare profes
 
 This app is not standalone — it works in tandem with the Dose Dost app which handles patient-side features like reminders and tracking.
 
+---
+
 ## TEAM
 
 **BigBoyCoders**
