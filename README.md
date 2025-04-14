@@ -35,7 +35,7 @@ Dose Doctor is a Flutter-based mobile application designed for healthcare profes
 ### Installation
 
 ```bash
-git clone https://github.com/your-repo/dose-doctor.git
+git clone https://github.com/SakD2006/dose_doctor.git
 cd dose-doctor
 flutter pub get
 flutter run
