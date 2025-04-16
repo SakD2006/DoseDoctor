@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../prescription/prescription_form_screen.dart';
+import 'medication_history_screen.dart';
 
 class PatientDetailsScreen extends StatelessWidget {
   final String patientId;
@@ -230,6 +231,32 @@ class PatientDetailsScreen extends StatelessWidget {
         backgroundColor: Colors.blue.shade700,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            IconButton(
+              icon: const Icon(Icons.history),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) =>
+                            MedicationHistoryScreen(patientId: patientId),
+                  ),
+                );
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.home),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 
