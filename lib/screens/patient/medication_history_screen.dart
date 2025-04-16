@@ -24,17 +24,39 @@ class _MedicationHistoryScreenState extends State<MedicationHistoryScreen> {
         FirebaseFirestore.instance
             .collection('patients')
             .doc(widget.patientId)
-            .collection('medicationIntakes')
+            .collection('medicineIntakes')
             .orderBy('timestamp', descending: true)
             .snapshots();
   }
 
-  String _formatTimestamp(Timestamp? timestamp) {
+  String _formatDate(String date) {
+    try {
+      // Parse the date string if it's in the format "YYYY-MM-DD"
+      final DateTime dateTime = DateTime.parse(date);
+      final DateFormat formatter = DateFormat('MMM d, yyyy');
+      return formatter.format(dateTime);
+    } catch (e) {
+      return date; // Return original if can't parse
+    }
+  }
+
+  String _formatTimestamp(dynamic timestamp) {
     if (timestamp == null) return 'Unknown date';
 
-    final DateTime dateTime = timestamp.toDate();
-    final DateFormat formatter = DateFormat('MMM d, yyyy - h:mm a');
-    return formatter.format(dateTime);
+    try {
+      if (timestamp is Timestamp) {
+        final DateTime dateTime = timestamp.toDate();
+        final DateFormat formatter = DateFormat('MMM d, yyyy - h:mm a');
+        return formatter.format(dateTime);
+      } else if (timestamp is String) {
+        // Try to parse the string into a DateTime
+        return timestamp;
+      }
+    } catch (e) {
+      // If parsing fails, return the original string
+    }
+
+    return timestamp.toString();
   }
 
   @override
@@ -85,7 +107,10 @@ class _MedicationHistoryScreenState extends State<MedicationHistoryScreen> {
 
               final medicineName = data['medicineName'] ?? 'Unknown Medicine';
               final taken = data['taken'] ?? false;
-              final timestamp = data['timestamp'] as Timestamp?;
+              final timestamp = data['timestamp'];
+              final date = data['date'] as String?;
+              final dosage = data['dosage'] as String?;
+              final mealTime = data['mealTime'] as String?;
 
               return Card(
                 elevation: 2,
@@ -110,18 +135,32 @@ class _MedicationHistoryScreenState extends State<MedicationHistoryScreen> {
                             style: TextStyle(fontSize: 16),
                           ),
                           Text(
-                            taken ? 'Taken' : 'Not Taken',
+                            taken == true ? 'Taken' : 'Not Taken',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: taken ? Colors.green : Colors.red,
+                              color: taken == true ? Colors.green : Colors.red,
                             ),
                           ),
                         ],
                       ),
+                      if (dosage != null) ...[
+                        const SizedBox(height: 6),
+                        Text(
+                          'Dosage: $dosage',
+                          style: const TextStyle(fontSize: 14),
+                        ),
+                      ],
+                      if (mealTime != null) ...[
+                        const SizedBox(height: 6),
+                        Text(
+                          'Meal: $mealTime',
+                          style: const TextStyle(fontSize: 14),
+                        ),
+                      ],
                       const SizedBox(height: 6),
                       Text(
-                        'Time: ${_formatTimestamp(timestamp)}',
+                        'Date: ${date != null ? _formatDate(date) : _formatTimestamp(timestamp)}',
                         style: const TextStyle(
                           fontSize: 14,
                           color: Colors.grey,
